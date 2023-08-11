@@ -1,0 +1,22 @@
+.link {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #5243C2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    left: 140px;
+    top: 200px;
+    color: #FFF;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+.hidden {
+    display: none;
+}

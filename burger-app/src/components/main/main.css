@@ -1,0 +1,11 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 630px;
+    width: 1250px;
+    margin: 0 auto;
+}
+.hidden {
+    display: none;
+}
