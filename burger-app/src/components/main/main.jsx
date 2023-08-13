@@ -12,14 +12,15 @@ class Main extends Component {
     }
 
     render() {
-        const {getActiveTab, makeBurger} = this.props;
+        const {getActiveTab, makeBurger, ingredients, renderBurger, summaryData} = this.props;
 
         return (
             <div className="main">
                 <Headline />
                 <Link getActiveTab={getActiveTab} makeBurger={makeBurger}/>
                 <Intro getActiveTab={getActiveTab}/>
-                <Burger getActiveTab={getActiveTab}/>
+                <Burger getActiveTab={getActiveTab}
+                        ingredients={ingredients} renderBurger={renderBurger} summaryData={summaryData}/>
             </div>
         );
     }

@@ -9,7 +9,68 @@ class App extends Component {
         super(props);
 
         this.state = {
-            activeTab: "intro"
+            activeTab: "burger",
+            ingredients: {
+                cutlet: {
+                    title: "Cutlet",
+                    tag: "cutlet",
+                    img: "/cutlet.png",
+                },
+                mayo: {
+                    title: "Mayo",
+                    tag: "mayo",
+                    img: "/mayo.png",
+                },
+                onion: {
+                    title: "Onion",
+                    tag: "onion",
+                    img: "/onion.png",
+                },
+                tomato: {
+                    title: "Tomato",
+                    tag: "tomato",
+                    img: "/tomato.png",
+                },
+                cucumber: {
+                    title: "Cucumber",
+                    tag: "cucumber",
+                    img: "/cucumber.png",
+                },
+                cheese: {
+                    title: "Cheese",
+                    tag: "cheese",
+                    img: "/cheese.png",
+                },
+                salad: {
+                    title: "Salad",
+                    tag: "salad",
+                    img: "/salad.png",
+                },
+                bunBottom: {
+                    title: "Bun",
+                    tag: "bun_bottom",
+                    img: "/bun_bottom.png",
+                },
+                bunMiddle: {
+                    title: "Bun",
+                    tag: "bun_middle",
+                    img: "/bun_middle.png",
+                },
+                bunTop: {
+                    title: "Bun",
+                    tag: "bun_top",
+                    img: "/bun_top.png",
+                },
+            },
+            filling: {
+
+            },
+            summary: {
+                price: 1.00,
+                time: 0,
+                oz: 0,
+                kcal: 0,
+            }
         }
     }
 
@@ -21,12 +82,26 @@ class App extends Component {
         return this.state.activeTab;
     }
 
+    getIngredients = () => {
+        return this.state.ingredients;
+    }
+
+    getCurrentBurger = () => {
+        return this.state.filling;
+    }
+
+    getSummary = () => {
+        return this.state.summary;
+    }
+
     render() {
-        console.log(this.state.activeTab)
+        const {filling, ingredients, summary} = this.state;
+
         return (
             <div className="app">
                 <Header getActiveTab={this.getActiveTab}  setActiveTab={this.setActiveTab}/>
-                <Main getActiveTab={this.getActiveTab} makeBurger={this.setActiveTab}/>
+                <Main getActiveTab={this.getActiveTab} makeBurger={this.setActiveTab}
+                      ingredients={ingredients} renderBurger={filling} summaryData={summary}/>
                 <Footer />
             </div>
         )
