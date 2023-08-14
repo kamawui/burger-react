@@ -2,7 +2,7 @@
     font-family: 'Open Sans', sans-serif;;
 }
 .navigation {
-    width: 1250px;
+    width: 90%;
     height: 80px;
     margin: 0px auto 32px;
     display: flex;
@@ -23,7 +23,7 @@
 .navigation-logo {
     width: 80px;
     height: 80px;
-    margin-right: 80px;
+    margin-right: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +57,7 @@
     margin: 0px 5px;
 }
 .contact-number {
-    margin: 0px 60px;
+    margin: 0px 40px;
     font-weight: 600;
 }
 .emoji {

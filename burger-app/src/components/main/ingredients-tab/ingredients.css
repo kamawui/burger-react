@@ -1,0 +1,47 @@
+.ingredients {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hidden {
+    display: none;
+}
+.ingredient-item {
+    width: 104px;
+    height: 135px;
+    padding: 24px 9px;
+    margin: 0px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ingredient-image {
+    width: 104px;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ingredient-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2939;
+    margin: 12px 0px;
+}
+.ingredient-counter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.op {
+    font-size: 20px;
+    color: #5243C2;
+    cursor: pointer;
+    border: none;
+}
+.count {
+    font-size: 20px;
+    color: #1F2939;
+    font-weight: 600;
+}

@@ -1,16 +1,11 @@
 .burger {
-    width: 673px;
+    width: 800px;
     height: 630px;
 }
 .burger-content {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-}
-.burger-area {
-    width: 450px;
-    height: 450px;
-    background-color: gray;
 }

@@ -10,61 +10,110 @@ class App extends Component {
 
         this.state = {
             activeTab: "burger",
-            ingredients: {
-                cutlet: {
+            ingredients: [
+                {
                     title: "Cutlet",
                     tag: "cutlet",
-                    img: "/cutlet.png",
+                    img: "/ingredients/cutlet.png",
+                    burgerPart: "/burger/cutlet.png",
+                    count: 0,
+                    price: 1,
+                    kcal: 50,
+                    time: 2,
+                    oz: 7
                 },
-                mayo: {
+                {
                     title: "Mayo",
                     tag: "mayo",
-                    img: "/mayo.png",
+                    img: "/ingredients/mayo.png",
+                    burgerPart: "/burger/mayo.png",
+                    count: 0,
+                    price: 0.3,
+                    kcal: 55,
+                    time: 0,
+                    oz: 0.5
                 },
-                onion: {
+                {
                     title: "Onion",
                     tag: "onion",
-                    img: "/onion.png",
+                    img: "/ingredients/onion.png",
+                    burgerPart: "/burger/onion.png",
+                    count: 0,
+                    price: 0.15,
+                    kcal: 0.5,
+                    time: 0,
+                    oz: 0.5
                 },
-                tomato: {
+                {
                     title: "Tomato",
                     tag: "tomato",
-                    img: "/tomato.png",
+                    img: "/ingredients/tomato.png",
+                    burgerPart: "/burger/tomato.png",
+                    count: 0,
+                    price: 0.15,
+                    kcal: 0.5,
+                    time: 0,
+                    oz: 0.5
                 },
-                cucumber: {
+                {
                     title: "Cucumber",
                     tag: "cucumber",
-                    img: "/cucumber.png",
+                    img: "/ingredients/cucumber.png",
+                    burgerPart: "/burger/cucumber.png",
+                    count: 0,
+                    price: 0.15,
+                    kcal: 0.5,
+                    time: 0,
+                    oz: 0.5
                 },
-                cheese: {
+                {
                     title: "Cheese",
                     tag: "cheese",
-                    img: "/cheese.png",
+                    img: "/ingredients/cheese.png",
+                    burgerPart: "/burger/cheese.png",
+                    count: 0,
+                    price: 0.5,
+                    kcal: 10,
+                    time: 1,
+                    oz: 1
                 },
-                salad: {
+                {
                     title: "Salad",
                     tag: "salad",
-                    img: "/salad.png",
+                    img: "/ingredients/salad.png",
+                    burgerPart: "/burger/salad.png",
+                    count: 0,
+                    price: 0.15,
+                    kcal: 0.1,
+                    time: 0,
+                    oz: 0.5
                 },
-                bunBottom: {
-                    title: "Bun",
-                    tag: "bun_bottom",
-                    img: "/bun_bottom.png",
-                },
-                bunMiddle: {
+                {
                     title: "Bun",
                     tag: "bun_middle",
-                    img: "/bun_middle.png",
+                    img: "/ingredients/bun_middle.png",
+                    burgerPart: "/burger/bun_middle.png",
+                    count: 0,
+                    price: 1,
+                    kcal: 30,
+                    time: 1,
+                    oz: 5
                 },
-                bunTop: {
-                    title: "Bun",
-                    tag: "bun_top",
-                    img: "/bun_top.png",
-                },
-            },
-            filling: {
 
+            ],
+            defaultIngredients: {
+                bunTop: {
+                    tag: "bun_top",
+                    img: "/burger/bun_top.png",
+                },
+                bunBottom: {
+                    tag: "bun_bottom",
+                    img: "/burger/bun_bottom.png",
+                }
             },
+            filling: [
+
+            ],
             summary: {
                 price: 1.00,
                 time: 0,
@@ -82,26 +131,74 @@ class App extends Component {
         return this.state.activeTab;
     }
 
-    getIngredients = () => {
-        return this.state.ingredients;
+    addIngredient = (tag) => {
+        this.setState(({ingredients}) => {
+            let ingredient = ingredients.filter(item => item.tag === tag)[0];
+
+            ingredient.count += 0.5;
+
+            this.setState(({summary}) => {
+                summary.price += ingredient.price;
+                summary.time += ingredient.time;
+                summary.oz += ingredient.oz;
+                summary.kcal += ingredient.kcal;
+
+                return summary;
+            });
+
+            return ingredients;
+        });
+
     }
 
-    getCurrentBurger = () => {
-        return this.state.filling;
+    removeIngredient = (tag) => {
+        this.setState(({ingredients}) => {
+            let ingredient = ingredients.filter(item => item.tag === tag)[0];
+
+            if (ingredient.count != 0) {
+                ingredient.count -= 0.5;
+
+                this.setState(({summary}) => {
+                    summary.price -= ingredient.price;
+                    summary.time -= ingredient.time;
+                    summary.oz -= ingredient.oz;
+                    summary.kcal -= ingredient.kcal;
+
+                    return summary;
+                });
+            }
+
+            return ingredients;
+        })
     }
 
-    getSummary = () => {
-        return this.state.summary;
+    fillBurger = () => {  // можно убрать filling вообще и все попробовать сделатб чисто через ingredients, в котором все есть и так, создать функцию которая будет просто возвращать массив из элементов ингредиентов кол-во которых > 1
+        this.setState(({filling}) => {
+            let ingredients = this.state.ingredients.filter(item => item.count != 0);
+
+            for (let i = 0; i < ingredients.length; i++) {
+                while (ingredients[i].count != 0) {
+                    filling.push(ingredients[i].title);
+                    ingredients[i].count--;
+                }
+            }
+
+            console.log(filling);
+
+            return filling;
+        })
     }
 
     render() {
-        const {filling, ingredients, summary} = this.state;
+        const {filling, ingredients, defaultIngredients, summary} = this.state;
 
         return (
             <div className="app">
                 <Header getActiveTab={this.getActiveTab}  setActiveTab={this.setActiveTab}/>
                 <Main getActiveTab={this.getActiveTab} makeBurger={this.setActiveTab}
-                      ingredients={ingredients} renderBurger={filling} summaryData={summary}/>
+                      ingredients={ingredients} defaultIngredients={defaultIngredients}
+                      filling={filling} summaryData={summary}
+                      addIngredient={this.addIngredient} removeIngredient={this.removeIngredient}/>
                 <Footer />
             </div>
         )
