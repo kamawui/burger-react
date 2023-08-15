@@ -68,6 +68,10 @@
     align-items: center;
     margin: 0px 5px;
 }
+.total-info-part span {
+    float: left;
+    width: 100px;
+}
 .time-icon {
     border-radius: 99px;
     background-color: #B956F5;

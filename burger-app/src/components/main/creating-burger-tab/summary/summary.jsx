@@ -1,7 +1,7 @@
-import './info.css';
+import './summary.css';
 import {Component} from "react";
 
-class Info extends Component {
+class Summary extends Component {
     constructor(props) {
         super(props);
 
@@ -58,7 +58,7 @@ class Info extends Component {
     }
 
     integerToString = (value) => {
-        let string = value.toString();
+        let string = value.toFixed(2).toString();
 
         if (string.indexOf(".") > 0) {
             if (string.substring(string.indexOf(".")).length > 2) {
@@ -72,17 +72,7 @@ class Info extends Component {
     }
 
     cutInteger = (value) => {
-        let string = value.toString();
-
-        if (string.indexOf(".") > 0) {
-            if (string.substring(string.indexOf(".")).length > 2) {
-                return string.substring(0, string.indexOf(".") + 3);
-            }
-
-            return string;
-        }
-
-        return string;
+        return value.toFixed(0).toString();
     }
 
 
@@ -121,4 +111,4 @@ class Info extends Component {
     }
 }
 
-export default Info;
+export default Summary;

@@ -1,6 +1,7 @@
 .headline {
-    width: 245px;
+    width: 100px;
     height: 240px;
     font-size: 62px;
     font-weight: 700;
+    margin: 180px;
 }

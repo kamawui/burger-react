@@ -1,3 +1,7 @@
+.view {
+    display: flex;
+    align-items: end;
+}
 .burger-area {
     width: 350px;
     height: 60%;
@@ -5,22 +9,106 @@
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    margin-right: 60px;
 }
-.bun-bottom {
-    margin-top: -50px;
-    z-index: 1;
+.gift-area {
+    width: 170px;
+    height: 134px;
+    position: absolute;
+    margin-top: -134px;
+    top: 80%;
+    left: 53%;
 }
-.bun-bottom img {
+.gift {
+    display: flex;
+    align-items: center;
+}
+.message {
+    color: #FF4D4F;
+    font-size: 16px;
+    font-weight: 600;
+    width: 200px;
+}
+.hidden {
+    display: none;
+}
+.bun_bottom {
+    display: flex;
+}
+.bun_bottom img {
     width: 300px;
     height: 120px;
 }
-.bun-top {
-    z-index: 2;
+.bun_top {
+    margin-bottom: -60px;
+}
+.bun_top img {
     width: 300px;
     height: 150px;
 }
-.bun-top img {
+.cutlet {
+    margin-top: -20px;
+    margin-bottom: -65px;
+}
+.cutlet img {
     width: 300px;
-    height: 150px;
+    height: 120px;
+}
+.mayo {
+    margin-top: 30px;
+    margin-bottom: -60px;
+}
+.mayo img {
+    width: 300px;
+    height: 30px;
+}
+.salad {
+    margin-top: 20px;
+    margin-bottom: -60px;
+}
+.salad img {
+    width: 300px;
+    height: 45px;
+}
+.cheese {
+    margin-top: 35px;
+    margin-bottom: -60px;
+}
+.cheese img {
+    width: 300px;
+    height: 30px;
+}
+.bun_middle {
+    margin-bottom: -65px;
+}
+.bun_middle img {
+    width: 300px;
+    height: 100px;
+}
+.tomato {
+    margin-top: -5px;
+    margin-bottom: -80px;
+}
+.tomato img {
+    width: 300px;
+    height: 100px;
+}
+.cucumber {
+    margin-top: -20px;
+    margin-bottom: -100px;
+}
+.cucumber img {
+    width: 300px;
+    height: 120px;
+}
+.onion {
+    margin-top: -20px;
+    margin-bottom: -100px;
+}
+.onion img {
+    width: 300px;
+    height: 120px;
+}
+.gift {
+    position: absolute;
+
 }

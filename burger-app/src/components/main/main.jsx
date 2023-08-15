@@ -1,7 +1,7 @@
 import './main.css';
 import {Component} from "react";
 import Headline from "./headline/headline";
-import Link from "./tab-link/link";
+import Link from "./link/link";
 import Intro from "./intro-tab/intro";
 import Burger from "./creating-burger-tab/burger";
 import Ingredients from "./ingredients-tab/ingredients";
@@ -13,7 +13,8 @@ class Main extends Component {
     }
 
     render() {
-        const {getActiveTab, makeBurger, ingredients, defaultIngredients, filling, summaryData, addIngredient, removeIngredient}
+        const {getActiveTab, makeBurger, ingredients, defaultIngredients, filling,
+            summaryData, addIngredient, removeIngredient, getTotalPrice}
             = this.props;
 
         return (
@@ -23,7 +24,8 @@ class Main extends Component {
                     <Link getActiveTab={getActiveTab} makeBurger={makeBurger}/>
                     <Intro getActiveTab={getActiveTab}/>
                     <Burger getActiveTab={getActiveTab} defaultIngredients={defaultIngredients}
-                            filling={filling} summaryData={summaryData}/>
+                            filling={filling} summaryData={summaryData}
+                            getTotalPrice={getTotalPrice}/>
 
                 </div>
                 <Ingredients getActiveTab={getActiveTab} ingredients={ingredients}
